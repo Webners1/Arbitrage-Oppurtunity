@@ -65,6 +65,8 @@ const PoolStatsChart = () => {
         ?.reduce((acc, cur) => {
           const x = cur.date.getTime()
           if (Math.round(x / 1000) >= currentDate - chartTimespans[chartRange]) {
+        // @ts-ignore TYPE NEEDS FIXING
+           
             acc.push({
               // @ts-ignore TYPE NEEDS FIXING
               x,
