@@ -13,6 +13,7 @@ const Step: FC<Step> = ({ _index, _active, _last, children }) => {
         {Children.map(children, (child) => {
           if (isValidElement(child)) {
             return cloneElement(child, {
+              //@ts-ignore
               _index,
               _active,
               _last,
