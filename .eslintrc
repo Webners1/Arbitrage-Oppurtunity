@@ -12,6 +12,7 @@
     "simple-import-sort/imports": "off",
     "unused-imports/no-unused-imports": "off",
 		"unused-imports/no-unused-vars": "off",
+    "react/no-unknown-property":"off"
     
   }
 }
