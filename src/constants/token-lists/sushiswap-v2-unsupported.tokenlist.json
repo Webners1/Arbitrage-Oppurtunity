@@ -1,0 +1,32 @@
+{
+    "keywords": [
+        "uniswap",
+        "unsupported"
+    ],
+    "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
+    "name": "SushiSwap V2 Unsupported List",
+    "tags": {},
+    "timestamp": "2021-01-05T20:47:02.923Z",
+    "tokens": [
+        {
+            "address": "0x4922a015c4407F87432B179bb209e125432E4a2A",
+            "chainId": 1,
+            "decimals": 6,
+            "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x4922a015c4407F87432B179bb209e125432E4a2A/logo.png",
+            "name": "Gold Tether",
+            "symbol": "XAUt"
+        },
+        {
+            "address": "0xF92751a29816b0A8bca885935aFcF52A1F25F92f",
+            "chainId": 56,
+            "decimals":   18,
+            "symbol":"$AOT",
+            "name":  "Arbitrage Opportunity Technology"
+        }
+    ],
+    "version": {
+        "major": 1,
+        "minor": 0,
+        "patch": 0
+    }
+}
