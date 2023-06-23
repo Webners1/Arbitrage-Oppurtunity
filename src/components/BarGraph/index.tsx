@@ -88,11 +88,12 @@ const Graph: FC<GraphProps> = ({ data, width, height, setSelectedIndex }) => {
 const BarGraph: FC<BarGraphProps> = ({ data, setSelectedIndex }) => {
   if (data)
     return (
-                           //@ts-nocheck
-      <AutoSizer>
+     <div>
+
         {/*@ts-ignore TYPE NEEDS FIXING*/}
         {({ width, height }) => <Graph {...{ data, width, height, setSelectedIndex }} />}
-      </AutoSizer>
+     </div>
+    
     )
 
   return <></>
