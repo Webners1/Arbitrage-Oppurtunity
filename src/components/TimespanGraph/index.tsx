@@ -21,7 +21,7 @@ export default function TimespanGraph(props: TimespanGraphProps) {
   return (
     <>
       {props.data && props.data[0]?.length !== 0 && (
-        // @ts-ignore TYPE NEEDS FIXING
+        //@ts-expect-error Server Component
         <AutoSizer>{({ width, height }) => <Curves {...props} width={width} height={height} />}</AutoSizer>
       )}
     </>
