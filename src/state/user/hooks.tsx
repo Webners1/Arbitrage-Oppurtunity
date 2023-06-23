@@ -1,11 +1,10 @@
 import { defaultAbiCoder } from '@ethersproject/abi'
 import { getCreate2Address } from '@ethersproject/address'
 import { AddressZero } from '@ethersproject/constants'
-import { keccak256 } from '@ethersproject/solidity'
+import { keccak256,pack } from '@ethersproject/solidity'
 import {
   BENTOBOX_ADDRESS,
   CHAINLINK_ORACLE_ADDRESS,
-  computePairAddress,
   Currency,
   FACTORY_ADDRESS,
   KASHI_ADDRESS,
@@ -168,6 +167,23 @@ export function useURLWarningToggle(): () => void {
  * @param tokenA one of the two tokens
  * @param tokenB the other token
  */
+
+export function computePairAddress({
+  factoryAddress,
+  tokenA,
+  tokenB,
+}: {
+  factoryAddress: string
+  tokenA: Token
+  tokenB: Token
+}): string {
+  const [token0, token1] = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA] // does safety checks
+  return getCreate2Address(
+    factoryAddress,
+    keccak256(['bytes'], [pack(['address', 'address'], [token0.address, token1.address])]),
+    token0.chainId == 1 ? "0x284105c50b630ba152d66c7cc0721c3729f56026a8d71617578311e869c253bf" : token0.chainId == 56 ? "0x00fb7f630766e6a796048ea87d01acd3068e8ff67d078148a3fa3f4a84f69bd5": tokenA.chainId == 137 ? "0x75df2c56877e32c6cf5b6bae86b4df78f14dcc4566ead8468f91d83b7838b279": "0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303"
+  )
+}
 export function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
   if (tokenA.chainId !== tokenB.chainId) throw new Error('Not matching chain IDs')
   if (tokenA.equals(tokenB)) throw new Error('Tokens cannot be equal')
@@ -175,7 +191,10 @@ export function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
 
   return new Token(
     tokenA.chainId,
-    computePairAddress({ factoryAddress: FACTORY_ADDRESS[tokenA.chainId], tokenA, tokenB }),
+    computePairAddress({ factoryAddress: 
+      tokenA.chainId == 56
+        ? '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73'
+        : FACTORY_ADDRESS[tokenA.chainId], tokenA, tokenB }),
     18,
     'UNI-V2',
     'Uniswap V2'
@@ -385,3 +404,5 @@ export function useUserSushiGuard(): [boolean, (newUseSushiGuard: boolean) => vo
 
   return [useSushiGuard, setUseSushiGuard]
 }
+
+

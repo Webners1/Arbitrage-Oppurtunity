@@ -220,13 +220,19 @@ export function useMiniChefContract(withSignerIfPossible?: boolean): Contract | 
 
 export function useFactoryContract(): Contract | null {
   const { chainId } = useActiveWeb3React()
-  return useContract(chainId ? FACTORY_ADDRESS[chainId] : undefined, FACTORY_ABI, false)
+  return useContract(chainId ? chainId == 56
+      ? '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73'
+      //@ts-ignore
+      : FACTORY_ADDRESS[chainId] : undefined, FACTORY_ABI, false)
 }
 
 export function useRouterContract(withSignerIfPossible?: boolean): Contract | null {
   const { chainId } = useActiveWeb3React()
   // @ts-ignore TYPE NEEDS FIXING
-  return useContract(ROUTER_ADDRESS[chainId], ROUTER_ABI, withSignerIfPossible)
+  return useContract(chainId == 56
+      ? '0x10ED43C718714eb63d5aA57B78B54704E256024E'
+      //@ts-ignore
+      : ROUTER_ADDRESS[chainId], ROUTER_ABI, withSignerIfPossible)
 }
 
 export function useSushiBarContract(withSignerIfPossible?: boolean): Contract | null {

@@ -30,7 +30,10 @@ export function getRouterAddress(chainId?: ChainId) {
   if (!chainId) {
     throw Error(`Undefined 'chainId' parameter '${chainId}'.`)
   }
-  return ROUTER_ADDRESS[chainId]
+  return chainId == 56
+      ? '0x10ED43C718714eb63d5aA57B78B54704E256024E'
+      //@ts-ignore
+      : ROUTER_ADDRESS[chainId]
 }
 
 // account is optional

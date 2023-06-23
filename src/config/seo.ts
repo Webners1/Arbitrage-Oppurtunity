@@ -1,17 +1,13 @@
 const SEO = {
   defaultTitle: 'Sushi',
-  titleTemplate: '%s | Sushi',
+  titleTemplate: '%s | Arbitrage Opportunity',
   description: 'Swap, yield, lend, borrow, leverage, limit, launch all on one community driven ecosystem',
   openGraph: {
     type: 'website',
-    url: 'https://app.sushi.com/',
-    site_name: 'Sushi',
+    url: '',
+    site_name: 'Arbitrage Opportunity',
   },
-  twitter: {
-    handle: '@SushiSwap',
-    site: '@SushiSwap',
-    cardType: 'summary_large_image',
-  },
+ 
 }
 
 export default SEO

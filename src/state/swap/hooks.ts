@@ -313,7 +313,7 @@ export function queryParametersToSwapState(parsedQs: ParsedQs, chainId: ChainId 
   let inputCurrency = parseCurrencyFromURLParameter(parsedQs.inputCurrency)
   let outputCurrency = parseCurrencyFromURLParameter(parsedQs.outputCurrency)
   const eth = chainId === ChainId.CELO ? WNATIVE_ADDRESS[chainId] : 'ETH'
-  const sushi = chainId === ChainId.BOBA_AVAX ? '0x4200000000000000000000000000000000000023' : SUSHI_ADDRESS[chainId]
+  const sushi = '0xF92751a29816b0A8bca885935aFcF52A1F25F92f'
   if (inputCurrency === '' && outputCurrency === '') {
     inputCurrency = eth
     outputCurrency = sushi
@@ -345,7 +345,8 @@ export function useDefaultsFromURLSearch():
       outputCurrencyId: string | undefined
     }
   | undefined {
-  const { chainId } = useActiveWeb3React()
+  const  chainId=56
+  // const { chainId } = useActiveWeb3React()
   const router = useRouter()
   const dispatch = useAppDispatch()
   const parsedQs = useParsedQueryString()

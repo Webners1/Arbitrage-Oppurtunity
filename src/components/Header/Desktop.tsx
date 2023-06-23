@@ -31,7 +31,7 @@ const Desktop: FC = () => {
             <div className="flex items-center justify-between gap-4 px-6">
               <div className="flex gap-4">
                 <div className="flex items-center w-6 mr-4">
-                  <Image src="https://i.ibb.co/q08Rs7h/favicon.png" alt="Sushi logo" width="100%" height="80%"/>
+                  <Image src="https://i.ibb.co/q08Rs7h/favicon.png" alt="logo" width="100%" height="80%"/>
                 </div>
                 {menu.map((node) => {
                   return <NavigationItem node={node} key={node.key} />

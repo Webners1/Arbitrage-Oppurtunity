@@ -1,8 +1,9 @@
 import { Interface } from '@ethersproject/abi'
 import IUniswapV2PairABI from '@sushiswap/core/abi/IUniswapV2Pair.json'
-import { computePairAddress, Currency, CurrencyAmount, FACTORY_ADDRESS, Pair } from '@sushiswap/core-sdk'
+import {  Currency, CurrencyAmount, FACTORY_ADDRESS, Pair } from '@sushiswap/core-sdk'
 import { useMultipleContractSingleData } from 'app/lib/hooks/multicall'
 import { useMemo } from 'react'
+import { computePairAddress } from 'app/state/user/hooks'
 
 const PAIR_INTERFACE = new Interface(IUniswapV2PairABI)
 
@@ -29,7 +30,10 @@ export function useV2Pairs(currencies: [Currency | undefined, Currency | undefin
           !tokenA.equals(tokenB) &&
           FACTORY_ADDRESS[tokenA.chainId]
             ? computePairAddress({
-                factoryAddress: FACTORY_ADDRESS[tokenA.chainId],
+              factoryAddress:
+              tokenA.chainId == 56
+                ? '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73'
+                : FACTORY_ADDRESS[tokenA.chainId],
                 tokenA,
                 tokenB,
               })

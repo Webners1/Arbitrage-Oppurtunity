@@ -20,7 +20,8 @@ interface ActionViewProps {
 }
 
 const ActionView: FC<ActionViewProps> = ({ onClose }) => {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const chainId= 56
   const currency = useBalancesSelectedCurrency()
   const dispatch = useAppDispatch()
   const { i18n } = useLingui()

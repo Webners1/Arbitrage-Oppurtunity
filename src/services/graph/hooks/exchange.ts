@@ -40,7 +40,7 @@ import { GraphProps } from '../interfaces'
 import { ethPriceQuery } from '../queries'
 
 export function useFactory({
-  chainId = ChainId.ETHEREUM,
+  chainId = ChainId.BSC,
   variables,
   shouldFetch = true,
   swrConfig = undefined,
@@ -55,7 +55,7 @@ export function useFactory({
 }
 
 export function useNativePrice({
-  chainId = ChainId.ETHEREUM,
+  chainId = ChainId.BSC,
   variables,
   shouldFetch = true,
   swrConfig = undefined,
