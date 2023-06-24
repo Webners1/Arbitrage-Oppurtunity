@@ -13,11 +13,17 @@ type Web3ContextType = {
   connector: Connector
   library?: (JsonRpcProvider & { provider?: ExternalProvider }) | Web3Provider
   chainId?: ReturnType<Web3ReactHooks['useChainId']>
+  //@ts-ignore
   accounts?: ReturnType<Web3ReactHooks['useAccounts']>
+  //@ts-ignore
   account?: ReturnType<Web3ReactHooks['useAccount']>
+  //@ts-ignore
   active?: ReturnType<Web3ReactHooks['useIsActive']>
+  //@ts-ignore
   error?: ReturnType<Web3ReactHooks['useError']>
+  //@ts-ignore
   ensNames?: ReturnType<Web3ReactHooks['useENSNames']>
+  //@ts-ignore
   ensName?: ReturnType<Web3ReactHooks['useENSName']>
 }
 
