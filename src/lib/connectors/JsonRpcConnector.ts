@@ -10,6 +10,7 @@ export default class JsonRpcConnector extends Connector {
     super(actions)
     customProvider
       .on('connect', ({ chainId }: ProviderConnectInfo): void => {
+        //@ts-ignore
         this.actions.update({ chainId: parseChainId(chainId) })
       })
       .on('disconnect', (error: ProviderRpcError): void => {
@@ -17,9 +18,11 @@ export default class JsonRpcConnector extends Connector {
         this.actions.reportError(error)
       })
       .on('chainChanged', (chainId: string): void => {
+        //@ts-ignore
         this.actions.update({ chainId: parseChainId(chainId) })
       })
       .on('accountsChanged', (accounts: string[]): void => {
+        //@ts-ignore
         this.actions.update({ accounts })
       })
   }
