@@ -16,7 +16,9 @@ const useFeeData: UseFeeData = () => {
   const blockNumber = useBlockNumber()
 
   // FeeData uses null..
+  //@ts-ignore
   const [feeData, setFeeData] = useState<FeeData>({
+  //@ts-ignore
     maxFeePerGas: null,
     maxPriorityFeePerGas: null,
     gasPrice: null,
