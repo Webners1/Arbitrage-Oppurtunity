@@ -46,6 +46,7 @@ export function useAddTransaction() {
 /** Returns the hash of a pending approval transaction, if it exists. */
 export function usePendingApproval(token?: Token, spender?: string): string | undefined {
   const { chainId } = useActiveWeb3React()
+      //@ts-ignore
   const txs = useAtomValue(transactionsAtom)
   if (!chainId || !token || !spender) return undefined
 //@ts-ignore
@@ -55,11 +56,17 @@ export function usePendingApproval(token?: Token, spender?: string): string | un
   return Object.values(chainTxs).find(
     (tx) =>
       tx &&
+      //@ts-ignore
       tx.receipt === undefined &&
+      //@ts-ignore
       tx.info.type === TransactionType.APPROVAL &&
+      //@ts-ignore
       tx.info.tokenAddress === token.address &&
+      //@ts-ignore
       tx.info.spenderAddress === spender &&
+      //@ts-ignore
       isTransactionRecent(tx)
+      //@ts-ignore
   )?.info.response.hash
 }
 
