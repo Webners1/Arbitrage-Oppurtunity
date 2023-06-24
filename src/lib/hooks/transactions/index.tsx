@@ -76,6 +76,7 @@ export function TransactionsUpdater() {
   const updateTxs = useUpdateAtom(transactionsAtom)
   const onCheck = useCallback(
     ({ chainId, hash, blockNumber }) => {
+        //@ts-ignore
       updateTxs((txs) => {
 //@ts-ignore
         const tx = txs[chainId]?.[hash]
@@ -90,6 +91,7 @@ export function TransactionsUpdater() {
   )
   const onPrivateTxStatusCheck = useCallback(
     ({ chainId, hash, blockNumber, status }) => {
+        //@ts-ignore
       updateTxs((txs) => {
         //@ts-ignore
         const tx = txs[chainId]?.[hash]
@@ -105,6 +107,7 @@ export function TransactionsUpdater() {
   )
   const onReceipt = useCallback(
     ({ chainId, hash, receipt }) => {
+        //@ts-ignore
       updateTxs((txs) => {
 //@ts-ignore
         const tx = txs[chainId]?.[hash]
