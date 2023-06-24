@@ -16,6 +16,7 @@ function isTransactionRecent(transaction: Transaction) {
 export function usePendingTransactions() {
   const { chainId } = useActiveWeb3React()
   const txs = useAtomValue(transactionsAtom)
+  //@ts-ignore
   return (chainId ? txs[chainId] : null) ?? {}
 }
 
@@ -31,7 +32,9 @@ export function useAddTransaction() {
       const { hash } = info.response
 
       updateTxs((chainTxs) => {
+        //@ts-ignore
         const txs = chainTxs[txChainId] || {}
+        //@ts-ignore
         txs[hash] = { addedTime: new Date().getTime(), lastCheckedBlockNumber: blockNumber, info }
         chainTxs[chainId] = txs
       })
@@ -80,6 +83,7 @@ export function TransactionsUpdater() {
   const onPrivateTxStatusCheck = useCallback(
     ({ chainId, hash, blockNumber, status }) => {
       updateTxs((txs) => {
+        //@ts-ignore
         const tx = txs[chainId]?.[hash]
         if (tx) {
           tx.lastCheckedBlockNumber = tx.lastCheckedBlockNumber
