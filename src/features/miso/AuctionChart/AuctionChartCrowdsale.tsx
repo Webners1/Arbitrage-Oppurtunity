@@ -40,7 +40,7 @@ const AuctionChartCrowdsale: FC<AuctionChartCrowdsaleProps> = ({ auction, prices
   return (
     <div className={classNames('relative w-full h-full', minHeight)}>
       //@ts-ignore
-      <AutoSizer>
+      <div>
         {/*@ts-ignore TYPE NEEDS FIXING*/}
         {({ width, height }) => {
           const remainingHeight = prices ? height - bottomHeight : height
@@ -90,7 +90,7 @@ const AuctionChartCrowdsale: FC<AuctionChartCrowdsaleProps> = ({ auction, prices
             </div>
           )
         }}
-      </AutoSizer>
+      </div>
     </div>
   )
 }

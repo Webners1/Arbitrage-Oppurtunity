@@ -22,7 +22,7 @@ export default function TimespanGraph(props: TimespanGraphProps) {
     <>
       {props.data && props.data[0]?.length !== 0 && (
         //@ts-expect-error Server Component
-        <AutoSizer>{({ width, height }) => <Curves {...props} width={width} height={height} />}</AutoSizer>
+        <div>{({ width, height }) => <Curves {...props} width={width} height={height} />}</div>
       )}
     </>
   )

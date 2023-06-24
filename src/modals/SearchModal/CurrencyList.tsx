@@ -170,14 +170,14 @@ const CurrencyList: FC<CurrencyList> = ({ currencies, otherListTokens }) => {
       className="flex flex-col flex-1 flex-grow min-h-[50vh] lg:min-h-fit overflow-hidden h-full divide-y divide-dark-800"
     >
                         //@ts-nocheck
-      <AutoSizer>
+      <div>
         {/*@ts-ignore TYPE NEEDS FIXING*/}
         {({ height, width }) => (
           <List height={height} width={width} itemCount={itemData.length} itemSize={56}>
             {Row}
           </List>
         )}
-      </AutoSizer>
+      </div>
     </div>
   )
 }

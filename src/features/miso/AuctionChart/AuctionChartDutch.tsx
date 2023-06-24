@@ -48,7 +48,7 @@ const AuctionChartDutch: FC<AuctionChartDutchProps> = ({ auction, prices, showPr
   return (
     <div className={classNames('relative w-full h-full', minHeight)}>
       //@ts-ignore
-      <AutoSizer>
+      <div>
         {/*@ts-ignore TYPE NEEDS FIXING*/}
         {({ width, height }) => {
           const remainingHeight = prices ? height - bottomHeight : height
@@ -117,7 +117,7 @@ const AuctionChartDutch: FC<AuctionChartDutchProps> = ({ auction, prices, showPr
             </div>
           )
         }}
-      </AutoSizer>
+      </div>
     </div>
   )
 }
