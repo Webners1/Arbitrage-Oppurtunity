@@ -48,7 +48,7 @@ export function usePendingApproval(token?: Token, spender?: string): string | un
   const { chainId } = useActiveWeb3React()
   const txs = useAtomValue(transactionsAtom)
   if (!chainId || !token || !spender) return undefined
-
+//@ts-ignore
   const chainTxs = txs[chainId]
   if (!chainTxs) return undefined
 
@@ -70,6 +70,7 @@ export function TransactionsUpdater() {
   const onCheck = useCallback(
     ({ chainId, hash, blockNumber }) => {
       updateTxs((txs) => {
+//@ts-ignore
         const tx = txs[chainId]?.[hash]
         if (tx) {
           tx.lastCheckedBlockNumber = tx.lastCheckedBlockNumber
@@ -98,6 +99,7 @@ export function TransactionsUpdater() {
   const onReceipt = useCallback(
     ({ chainId, hash, receipt }) => {
       updateTxs((txs) => {
+//@ts-ignore
         const tx = txs[chainId]?.[hash]
         if (tx) {
           tx.receipt = receipt
