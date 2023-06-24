@@ -1,5 +1,6 @@
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
+//@ts-ignore
 import EXPORTS from '@sushiswap/trident/exports/all.json'
 import Button from 'app/components/Button'
 import Dots from 'app/components/Dots'
