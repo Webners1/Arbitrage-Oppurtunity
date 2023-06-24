@@ -30,7 +30,7 @@ export function useAddTransaction() {
       invariant(chainId)
       const txChainId = chainId
       const { hash } = info.response
-
+        //@ts-ignore
       updateTxs((chainTxs) => {
         //@ts-ignore
         const txs = chainTxs[txChainId] || {}
