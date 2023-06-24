@@ -99,13 +99,19 @@ export function ActiveWeb3Provider({
       stale = true
     }
   }, [library])
-
+  //@ts-ignore
   const accounts = hooks.useAccounts()
+  //@ts-ignore
   const account = hooks.useAccount()
+  //@ts-ignore
   const active = hooks.useIsActive()
+  //@ts-ignore
   const error = hooks.useError()
+  //@ts-ignore
   const ensNames = hooks.useENSNames()
+  //@ts-ignore
   const ensName = hooks.useENSName()
+  //@ts-ignore
   const web3 = useMemo(() => {
     if (connector === EMPTY || !active) {
       return EMPTY_CONTEXT
