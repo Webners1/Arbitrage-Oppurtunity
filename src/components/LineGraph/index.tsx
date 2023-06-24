@@ -140,10 +140,10 @@ const LineGraph: FC<LineGraphProps> = ({
   if (data)
     return (
                    //@ts-nocheck
-      <AutoSizer>
+      <div>
         {/*@ts-ignore TYPE NEEDS FIXING*/}
         {({ width, height }) => <Graph {...{ data, stroke, strokeWidth, width, height, setSelectedIndex }} />}
-      </AutoSizer>
+      </div>
     )
 
   return <></>
